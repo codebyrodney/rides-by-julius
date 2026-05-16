@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-obsidian-950 text-white font-body;
+    background-color: #050505;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #D4AF37;
+    border-radius: 3px;
+  }
+
+  ::selection {
+    background: rgba(212, 175, 55, 0.3);
+    color: #F5E17A;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply relative overflow-hidden bg-transparent border border-gold-500 text-gold-400 px-8 py-3 font-body font-medium tracking-widest uppercase text-sm transition-all duration-500;
+    letter-spacing: 0.15em;
+  }
+
+  .btn-gold::before {
+    content: '';
+    @apply absolute inset-0 bg-gold-gradient opacity-0 transition-opacity duration-500;
+  }
+
+  .btn-gold:hover::before {
+    @apply opacity-100;
+  }
+
+  .btn-gold:hover {
+    @apply text-obsidian-950;
+  }
+
+  .btn-gold span {
+    @apply relative z-10;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+  }
+
+  .glass-card:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .text-gold-shine {
+    background: linear-gradient(90deg, #D4AF37, #F5E17A, #D4AF37);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+  }
+
+  .luxury-divider {
+    @apply flex items-center gap-4;
+  }
+
+  .luxury-divider::before,
+  .luxury-divider::after {
+    content: '';
+    @apply flex-1 h-px;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+  }
+
+  .input-luxury {
+    @apply bg-transparent border border-obsidian-700 text-white px-4 py-3 w-full font-body text-sm transition-all duration-300 outline-none focus:border-gold-500;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .input-luxury::placeholder {
+    @apply text-obsidian-500;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .select-luxury {
+    @apply input-luxury appearance-none cursor-pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23D4AF37' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+  }
+
+  .nav-link {
+    @apply relative text-obsidian-300 hover:text-gold-400 transition-colors duration-300 font-body text-sm tracking-widest uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-px bg-gold-500 transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .car-card {
+    @apply glass-card transition-all duration-500 overflow-hidden;
+  }
+
+  .car-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(212, 175, 55, 0.08);
+  }
+
+  .section-label {
+    @apply text-gold-500 font-body text-xs tracking-widest uppercase mb-3;
+    letter-spacing: 0.25em;
+  }
+
+  .section-title {
+    @apply font-display text-white;
+  }
+
+  .price-tag {
+    @apply font-display text-gold-400;
+  }
+
+  .badge-luxury {
+    @apply bg-gold-500 text-obsidian-950 text-xs font-body font-medium px-3 py-1 tracking-widest uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .badge-available {
+    @apply bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs px-3 py-1 font-body tracking-wider uppercase;
+  }
+
+  .badge-sold {
+    @apply bg-red-500/20 text-red-400 border border-red-500/30 text-xs px-3 py-1 font-body tracking-wider uppercase;
+  }
+}
+
+@layer utilities {
+  .shimmer-bg {
+    background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}

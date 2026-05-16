@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-white text-gray-900 font-body;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-gray-100; }
+  ::-webkit-scrollbar-thumb { @apply bg-black rounded-full; }
+}
+
+@layer components {
+  .gold-text {
+    @apply text-black font-bold;
+  }
+  .glass {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .glass-dark {
+    background: rgba(248, 248, 248, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  .btn-gold {
+    @apply relative overflow-hidden bg-black text-white font-body font-semibold tracking-widest uppercase text-xs px-8 py-4 transition-all duration-300 hover:bg-gray-800;
+  }
+  .btn-outline-gold {
+    @apply border border-black text-black font-body font-medium tracking-widest uppercase text-xs px-8 py-4 transition-all duration-300 hover:bg-black hover:text-white;
+  }
+  .section-title {
+    @apply font-display text-5xl md:text-6xl font-light tracking-tight text-gray-900;
+  }
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-widest text-gray-400;
+  }
+  .input-dark {
+    @apply w-full bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400 px-4 py-3 font-body text-sm focus:outline-none focus:border-black transition-colors duration-200;
+  }
+  .card-car {
+    @apply bg-white overflow-hidden cursor-pointer transition-all duration-300 border border-gray-200 hover:shadow-md;
+  }
+  .shimmer-bg {
+    @apply bg-gray-100 animate-pulse;
+  }
+}
