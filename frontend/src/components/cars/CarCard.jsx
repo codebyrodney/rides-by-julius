@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Fuel, Settings, Car, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -12,6 +12,19 @@ export default function CarCard({ car, index = 0 }) {
     : ['https://via.placeholder.com/600x400?text=No+Image'];
 
   const [current, setCurrent] = useState(0);
+  const touchStartX = useRef(null);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (diff > 40) next(e);
+    else if (diff < -40) prev(e);
+    touchStartX.current = null;
+  };
 
   const prev = (e) => {
     e.preventDefault();
@@ -37,7 +50,11 @@ export default function CarCard({ car, index = 0 }) {
         className="block bg-white overflow-hidden border border-gray-200 hover:shadow-md transition-shadow duration-300 group"
       >
         {/* Image Slider */}
-        <div className="relative overflow-hidden aspect-[16/10] bg-gray-100">
+        <div
+  className="relative overflow-hidden aspect-[16/10] bg-gray-100"
+  onTouchStart={handleTouchStart}
+  onTouchEnd={handleTouchEnd}
+>
           <img
             src={images[current]}
             alt={`${car.year} ${car.brand} ${car.model}`}
