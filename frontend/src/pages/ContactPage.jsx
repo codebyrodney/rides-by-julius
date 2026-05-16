@@ -39,7 +39,7 @@ export default function ContactPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                   </svg>
                 ),
-                label: 'Phone', value: '+254 700 000 000',
+                label: 'Phone', value: '+254 705 523 897',
               },
               {
                 icon: (
@@ -71,7 +71,7 @@ export default function ContactPage() {
           <div style={{ marginTop: '24px', padding: '20px', backgroundColor: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '8px' }}>
             <p style={{ color: '#374151', fontSize: '14px', marginBottom: '12px' }}>Prefer instant communication?</p>
             
-              <a href="https://wa.me/254700000000"
+              <a href="https://wa.me/254705523897"
               target="_blank"
               rel="noopener noreferrer"
               style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#16a34a', fontSize: '14px', fontWeight: '600' }}
