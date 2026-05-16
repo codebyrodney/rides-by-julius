@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Phone } from 'lucide-react'
 
-const WHATSAPP = '+254700000000'
+const WHATSAPP = '+254705523897'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -108,7 +108,7 @@ export default function Navbar() {
               <div style={{ borderTop: '1px solid #e5e7eb', paddingTop: '16px' }}>
                 <a href={`tel:${WHATSAPP}`} style={{ color: '#374151', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Phone size={14} />
-                  +254 700 000 000
+                  +254 705523897
                 </a>
               </div>
             </div>

@@ -69,7 +69,7 @@ export default function Navbar() {
               style={{ color: '#374151', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '6px' }}
             >
               <Phone size={13} />
-              +254 700 000 000
+              +254 705 523 897
             </a>
             <Link
               to="/inventory"
@@ -108,7 +108,7 @@ export default function Navbar() {
               <div style={{ borderTop: '1px solid #e5e7eb', paddingTop: '16px' }}>
                 <a href={`tel:${WHATSAPP}`} style={{ color: '#374151', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Phone size={14} />
-                  +254 700 000 000
+                  +254 705 523 897
                 </a>
               </div>
             </div>

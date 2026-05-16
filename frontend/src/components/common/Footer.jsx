@@ -31,7 +31,7 @@ export default function Footer() {
                 { to: '/', label: 'Home' },
                 { to: '/inventory', label: 'Our Collection' },
                 { to: '/contact', label: 'Contact Us' },
-        
+                { to: '/admin', label: 'Admin Portal' },
               ].map(link => (
                 <Link key={link.to} to={link.to} style={{ color: '#374151', fontSize: '14px' }}>
                   {link.label}
@@ -52,8 +52,8 @@ export default function Footer() {
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <Phone size={14} style={{ color: '#000000', flexShrink: 0 }} />
-                <a href="tel:+254700000000" style={{ color: '#374151', fontSize: '14px' }}>
-                  +254 700 000 000
+                <a href="tel:+254705523897" style={{ color: '#374151', fontSize: '14px' }}>
+                  +254 705 523 897
                 </a>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>

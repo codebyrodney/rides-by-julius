@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 export default function WhatsAppButton({ carName = '' }) {
-  const phone = '254700000000';
+  const phone = '254705523897';
   const message = carName
     ? `Hello! I'm interested in the ${carName} listed on Rides by Julius.`
     : "Hello! I'd like to inquire about your car collection at Rides by Julius.";
