@@ -88,7 +88,7 @@ export default function InventoryPage() {
           </div>
         ) : cars.length > 0 ? (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {cars.map((car, i) => <CarCard key={car._id} car={car} index={i} />)}
             </div>
 
