@@ -1,12 +1,29 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Fuel, Settings, Car } from 'lucide-react';
+import { Fuel, Settings, Car, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const formatPrice = (p) =>
   new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', maximumFractionDigits: 0 }).format(p);
 
 export default function CarCard({ car, index = 0 }) {
-  const image = car.images?.[0]?.url || 'https://via.placeholder.com/600x400?text=No+Image';
+  const images = car.images?.length > 0
+    ? car.images.map(i => i.url)
+    : ['https://via.placeholder.com/600x400?text=No+Image'];
+
+  const [current, setCurrent] = useState(0);
+
+  const prev = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrent((p) => (p - 1 + images.length) % images.length);
+  };
+
+  const next = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrent((p) => (p + 1) % images.length);
+  };
 
   return (
     <motion.div
@@ -19,14 +36,44 @@ export default function CarCard({ car, index = 0 }) {
         to={`/cars/${car._id}`}
         className="block bg-white overflow-hidden border border-gray-200 hover:shadow-md transition-shadow duration-300 group"
       >
-        {/* Image */}
+        {/* Image Slider */}
         <div className="relative overflow-hidden aspect-[16/10] bg-gray-100">
           <img
-            src={image}
+            src={images[current]}
             alt={`${car.year} ${car.brand} ${car.model}`}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
+
+          {/* Arrows — only show if more than 1 image */}
+          {images.length > 1 && (
+            <>
+              <button
+                onClick={prev}
+                style={{ position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)', backgroundColor: 'rgba(0,0,0,0.5)', color: '#fff', border: 'none', borderRadius: '50%', width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 10 }}
+              >
+                <ChevronLeft size={16} />
+              </button>
+              <button
+                onClick={next}
+                style={{ position: 'absolute', right: '8px', top: '50%', transform: 'translateY(-50%)', backgroundColor: 'rgba(0,0,0,0.5)', color: '#fff', border: 'none', borderRadius: '50%', width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 10 }}
+              >
+                <ChevronRight size={16} />
+              </button>
+
+              {/* Dots */}
+              <div style={{ position: 'absolute', bottom: '8px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '4px', zIndex: 10 }}>
+                {images.map((_, i) => (
+                  <div
+                    key={i}
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); setCurrent(i); }}
+                    style={{ width: i === current ? '16px' : '6px', height: '6px', borderRadius: '3px', backgroundColor: i === current ? '#fff' : 'rgba(255,255,255,0.5)', cursor: 'pointer', transition: 'all 0.3s' }}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+
           {/* Badges */}
           <div className="absolute top-3 left-3 flex gap-2">
             {car.isFeatured && (
