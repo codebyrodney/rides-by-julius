@@ -75,7 +75,7 @@ export default function InventoryPage() {
         <CarFilters filters={filters} onChange={setFilters} brands={brands} />
 
         {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {[...Array(9)].map((_, i) => (
               <div key={i} className="glass animate-pulse">
                 <div className="aspect-[16/10] shimmer-gold" />
