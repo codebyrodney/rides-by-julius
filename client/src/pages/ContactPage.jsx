@@ -102,7 +102,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <label className="section-label text-[10px] block mb-2">Phone *</label>
-                        <input required value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} placeholder="+254 700 000 000" className="input-luxury" />
+                        <input required value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} placeholder="+254 705 523 897" className="input-luxury" />
                       </div>
                     </div>
                     <div>

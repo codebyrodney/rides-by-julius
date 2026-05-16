@@ -137,7 +137,7 @@ export default function HomePage() {
                 Book a Viewing
               </Link>
               <a
-                href={`https://wa.me/254700000000?text=${encodeURIComponent('Hello, I would like to schedule a private viewing.')}`}
+                href={`https://wa.me/254705523897?text=${encodeURIComponent('Hello, I would like to schedule a private viewing.')}`}
                 target="_blank" rel="noopener noreferrer"
                 className="border border-white/30 text-white font-semibold px-10 py-3 rounded-lg hover:bg-white/10 transition-colors w-full sm:w-auto"
               >
