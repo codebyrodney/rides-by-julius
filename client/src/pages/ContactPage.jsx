@@ -39,7 +39,7 @@ export default function ContactPage() {
             <div className="space-y-6 mb-10">
               {[
                 { Icon: MapPin, title: 'Our Showroom', info: 'Westlands Commercial Centre\nNairobi, Kenya' },
-                { Icon: Phone, title: 'Call or WhatsApp', info: '+254 700 000 000\nMon-Sat, 8am-7pm' },
+                { Icon: Phone, title: 'Call or WhatsApp', info: '+254 705 523 897\nMon-Sat, 8am-7pm' },
                 { Icon: Mail, title: 'Email Us', info: 'info@ridesbyjulius.com\nWe respond within 2 hours' },
                 { Icon: Clock, title: 'Opening Hours', info: 'Monday – Saturday: 8:00 AM – 7:00 PM\nSunday: 10:00 AM – 4:00 PM' },
               ].map(({ Icon, title, info }) => (
