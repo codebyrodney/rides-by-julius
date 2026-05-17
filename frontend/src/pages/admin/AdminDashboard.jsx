@@ -26,14 +26,14 @@ export default function AdminDashboard() {
     </AdminLayout>
   );
 
+  const stats = data?.stats || data || {};
   const statCards = [
-    { label: 'Total Vehicles', value: fmtNum(data?.stats.totalCars), sub: `${data?.stats.availableCars} available`, color: 'gold' },
-    { label: 'Featured Cars', value: fmtNum(data?.stats.featuredCars), sub: 'on homepage', color: 'gold' },
-    { label: 'New Inquiries', value: fmtNum(data?.stats.newInquiries), sub: `${data?.stats.totalInquiries} total`, color: 'emerald' },
-    { label: 'Test Drives', value: fmtNum(data?.stats.testDrives), sub: 'booked', color: 'blue' },
-    { label: 'Inventory Value', value: fmt(data?.stats.inventoryValue), sub: 'available stock', color: 'gold' },
+    { label: 'Total Vehicles', value: fmtNum(stats.totalCars ?? 0), sub: `${stats.availableCars ?? 0} available`, color: 'gold' },
+    { label: 'Featured Cars', value: fmtNum(stats.featuredCars ?? 0), sub: 'on homepage', color: 'gold' },
+    { label: 'New Inquiries', value: fmtNum(stats.newInquiries ?? 0), sub: `${stats.totalInquiries ?? 0} total`, color: 'emerald' },
+    { label: 'Test Drives', value: fmtNum(stats.testDrives ?? 0), sub: 'booked', color: 'blue' },
+    { label: 'Inventory Value', value: fmt(stats.inventoryValue ?? 0), sub: 'available stock', color: 'gold' },
   ];
-
   return (
     <AdminLayout title="Dashboard">
       {/* Stat cards */}
