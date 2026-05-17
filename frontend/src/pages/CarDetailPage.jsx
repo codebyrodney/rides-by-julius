@@ -150,7 +150,7 @@ export default function CarDetailPage() {
 
             {/* WhatsApp CTA */}
             <a
-              href={`https://wa.me/254700000000?text=${encodeURIComponent(`I'm interested in the ${carFullName}`)}`}
+              href={`https://wa.me/254705523897?text=${encodeURIComponent(`I'm interested in the ${carFullName}`)}`}
               target="_blank" rel="noopener noreferrer"
               style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', width: '100%', padding: '14px', backgroundColor: '#f0fdf4', border: '1px solid #bbf7d0', color: '#16a34a', fontSize: '14px', fontWeight: '600', borderRadius: '6px', textDecoration: 'none' }}
             >

@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Phone } from 'lucide-react'
 
-const WHATSAPP = '+254700000000'
+const WHATSAPP = '+254705523897'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
