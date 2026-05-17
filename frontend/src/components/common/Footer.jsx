@@ -30,8 +30,7 @@ export default function Footer() {
               {[
                 { to: '/', label: 'Home' },
                 { to: '/inventory', label: 'Our Collection' },
-                { to: '/contact', label: 'Contact Us' },
-                { to: '/admin', label: 'Admin Portal' },
+                { to: '/contact', label: 'Contact Us' },              
               ].map(link => (
                 <Link key={link.to} to={link.to} style={{ color: '#374151', fontSize: '14px' }}>
                   {link.label}
