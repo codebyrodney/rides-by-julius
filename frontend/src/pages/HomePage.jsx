@@ -24,7 +24,7 @@ export default function HomePage() {
   const [loadingFeatured, setLoadingFeatured] = useState(true);
 
   useEffect(() => {
-    api.get('/cars', { params: { limit: 6, sort: 'newest' } })
+    api.get('/cars', { params: { sort: 'newest' } })
       .then(({ data }) => setFeatured(Array.isArray(data.cars) ? data.cars : []))
       .catch(() => {})
       .finally(() => setLoadingFeatured(false));
