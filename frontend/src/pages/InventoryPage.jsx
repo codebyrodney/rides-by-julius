@@ -1,5 +1,4 @@
 import { useEffect, useState, useCallback } from 'react';
-import { motion } from 'framer-motion';
 import Navbar from '../components/common/Navbar';
 import Footer from '../components/common/Footer';
 import CarCard from '../components/cars/CarCard';
@@ -36,74 +35,63 @@ export default function InventoryPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-dark-900">
+    <div style={{ minHeight: '100vh', backgroundColor: '#f9fafb' }}>
       <Navbar />
 
       {/* Header */}
-      <section className="relative pt-36 pb-16 overflow-hidden">
-        <div className="absolute inset-0 opacity-20"
-          style={{ backgroundImage: 'radial-gradient(circle at 50% 0%, rgba(212,160,23,0.2) 0%, transparent 60%)' }}
-        />
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="font-mono text-[11px] tracking-[0.4em] uppercase text-gold-500 mb-4"
-          >
+      <section style={{ paddingTop: '120px', paddingBottom: '40px', textAlign: 'center', backgroundColor: '#f3f4f6' }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <p style={{ color: '#6b7280', fontSize: '11px', letterSpacing: '0.4em', textTransform: 'uppercase', marginBottom: '12px' }}>
             Our Collection
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="font-display text-6xl md:text-7xl font-light mb-4"
-          >
-            Vehicle <span className="italic gold-text">Inventory</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-white/40 font-body"
-          >
+          </p>
+          <h1 style={{ color: '#000000', fontSize: '48px', fontWeight: '800', marginBottom: '12px' }}>
+            Vehicle Inventory
+          </h1>
+          <p style={{ color: '#6b7280', fontSize: '14px' }}>
             {total > 0 ? `${total} vehicles available` : 'Explore our curated selection'}
-          </motion.p>
+          </p>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-6 pb-24">
+      <div className="max-w-7xl mx-auto px-6 pb-24" style={{ paddingTop: '32px' }}>
         <CarFilters filters={filters} onChange={setFilters} brands={brands} />
 
         {loading ? (
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {[...Array(9)].map((_, i) => (
-              <div key={i} className="glass animate-pulse">
-                <div className="aspect-[16/10] shimmer-gold" />
-                <div className="p-5 space-y-3">
-                  <div className="h-3 w-24 bg-white/5 rounded" />
-                  <div className="h-5 w-40 bg-white/5 rounded" />
+              <div key={i} style={{ backgroundColor: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '8px', overflow: 'hidden' }}>
+                <div style={{ aspectRatio: '16/10', backgroundColor: '#f3f4f6' }} />
+                <div style={{ padding: '16px' }}>
+                  <div style={{ height: '12px', width: '80px', backgroundColor: '#e5e7eb', borderRadius: '4px', marginBottom: '8px' }} />
+                  <div style={{ height: '16px', width: '120px', backgroundColor: '#e5e7eb', borderRadius: '4px' }} />
                 </div>
               </div>
             ))}
           </div>
         ) : cars.length > 0 ? (
           <>
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {cars.map((car, i) => <CarCard key={car._id} car={car} index={i} />)}
             </div>
 
             {/* Pagination */}
             {pages > 1 && (
-              <div className="flex justify-center gap-2 mt-12">
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '48px' }}>
                 {[...Array(pages)].map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setFilters((p) => ({ ...p, page: i + 1 }))}
-                    className={`w-10 h-10 font-mono text-sm transition-all ${
-                      filters.page === i + 1
-                        ? 'bg-gold-600 text-dark-900'
-                        : 'glass text-white/50 hover:text-gold-400'
-                    }`}
+                    style={{
+                      width: '40px',
+                      height: '40px',
+                      fontSize: '14px',
+                      fontWeight: '600',
+                      border: '1px solid #e5e7eb',
+                      borderRadius: '6px',
+                      cursor: 'pointer',
+                      backgroundColor: filters.page === i + 1 ? '#000000' : '#ffffff',
+                      color: filters.page === i + 1 ? '#ffffff' : '#374151',
+                    }}
                   >
                     {i + 1}
                   </button>
@@ -112,9 +100,9 @@ export default function InventoryPage() {
             )}
           </>
         ) : (
-          <div className="text-center py-24">
-            <p className="font-display text-3xl font-light text-white/20 mb-4">No vehicles found</p>
-            <p className="text-white/30 font-body text-sm">Try adjusting your filters</p>
+          <div style={{ textAlign: 'center', padding: '80px 0' }}>
+            <p style={{ color: '#9ca3af', fontSize: '24px', marginBottom: '12px' }}>No vehicles found</p>
+            <p style={{ color: '#9ca3af', fontSize: '14px' }}>Try adjusting your filters</p>
           </div>
         )}
       </div>
