@@ -8,7 +8,7 @@ const carSchema = new mongoose.Schema({
   price: { type: Number, required: true },
   mileage: { type: Number, default: 0 },
   condition: { type: String, enum: ['new', 'used', 'certified'], default: 'new' },
-  transmission: { type: String, enum: ['automatic', 'manual', 'semi-automatic', 'cvt', 'e-cvt'], default: 'automatic' },
+  transmission: { type: String, enum: ['automatic', 'manual', 'semi-automatic', 'cvt', 'e-CVT'], default: 'automatic' },
   fuelType: { type: String, enum: ['petrol', 'diesel', 'electric', 'hybrid'], default: 'petrol' },
   bodyType: { type: String, enum: ['sedan', 'suv', 'mini-suv', 'coupe', 'convertible', 'wagon', 'truck', 'van', 'hatchback'], default: 'sedan' },
   color: { type: String, required: true },

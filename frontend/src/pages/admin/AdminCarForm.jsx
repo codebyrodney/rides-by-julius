@@ -183,7 +183,7 @@ export default function AdminCarForm() {
                 <option value="manual">Manual</option>
                 <option value="semi-automatic">Semi-Automatic</option>
                 <option value="cvt">CVT</option>
-                <option value="e-CVT">e-CVT</option>
+                <option value="eCVT">e-CVT</option>
               </select>
             </Field>
             <Field label="Fuel Type">
