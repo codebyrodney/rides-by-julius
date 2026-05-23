@@ -72,7 +72,8 @@ export const createCar = async (req, res) => {
       ? JSON.parse(req.body.features)
       : req.body.features || [];
 
-    const car = await Car.create({ ...req.body, images, features });
+    const car = new Car({ ...req.body, images, features });
+await car.save({ validateBeforeSave: false });
     res.status(201).json(car);
   } catch (err) {
     res.status(500).json({ message: err.message });
