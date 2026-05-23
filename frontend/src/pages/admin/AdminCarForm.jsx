@@ -172,7 +172,7 @@ export default function AdminCarForm() {
           <div className="grid grid-cols-2 gap-4">
             <Field label="Body Type">
               <select value={form.bodyType} onChange={(e) => set('bodyType', e.target.value)} style={inputStyle}>
-                {['sedan','suv','coupe','convertible','wagon','truck','van','hatchback'].map((t) => (
+                {['sedan','suv', 'mini-suv','coupe','convertible','wagon','truck','van','hatchback'].map((t) => (
                   <option key={t} value={t} className="capitalize">{t}</option>
                 ))}
               </select>
@@ -182,6 +182,8 @@ export default function AdminCarForm() {
                 <option value="automatic">Automatic</option>
                 <option value="manual">Manual</option>
                 <option value="semi-automatic">Semi-Automatic</option>
+                <option value="cvt">CVT</option>
+                <option value="e-CVT">e-CVT</option>
               </select>
             </Field>
             <Field label="Fuel Type">
