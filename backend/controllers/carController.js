@@ -100,7 +100,7 @@ export const updateCar = async (req, res) => {
         features,
         images: newImages.length > 0 ? newImages : car.images,
       },
-      { new: true, runValidators: true }
+      { new: true, runValidators: false }
     );
     res.json(updatedCar);
   } catch (err) {
