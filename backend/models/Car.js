@@ -1,16 +1,16 @@
 import mongoose from 'mongoose';
 
 const carSchema = new mongoose.Schema({
-  name: { type: String, required: true, trim: true },
+  name: { type: String, trim: true },
   brand: { type: String, required: true, trim: true },
   model: { type: String, required: true },
-  year: { type: Number, required: false },
+  year: { type: Number },
   price: { type: Number, required: true },
   mileage: { type: Number, default: 0 },
-  condition: { type: String, enum: ['new', 'used', 'certified'], default: 'new' },
+  condition: { type: String, default: 'new' },
   transmission: { type: String, default: 'automatic' },
-  fuelType: { type: String, enum: ['petrol', 'diesel', 'electric', 'hybrid'], default: 'petrol' },
-  bodyType: { type: String, enum: ['sedan', 'suv', 'mini-suv', 'coupe', 'convertible', 'wagon', 'truck', 'van', 'hatchback'], default: 'sedan' },
+  fuelType: { type: String, default: 'petrol' },
+  bodyType: { type: String, default: 'sedan' },
   color: { type: String, required: true },
   engineSize: { type: String },
   horsepower: { type: Number },
